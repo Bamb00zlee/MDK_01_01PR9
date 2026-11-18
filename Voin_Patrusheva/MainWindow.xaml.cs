@@ -28,17 +28,16 @@ namespace Voin_Patrusheva
             InitializeComponent();
         }
 
+        // тяжелые доспехи
         private void AttackHard(object sender, MouseButtonEventArgs e)
         {
             // Берем урон из левого текстбокса
             if (int.TryParse(HDYron.Text, out int yron))
             {
-                hardVoin.GetYron(yron); // Урон делится на 2 (из-за override в классе Hard)
+                hardVoin.GetYron(yron);
 
-                // Выводим в Label
                 playerHealthLD.Content = "Жизненные показатели: " + hardVoin.lives;
 
-                // Проверка на смерть
                 if (hardVoin.lives <= 0)
                 {
                     playerHealthLD.Content = "Жизненные показатели: умер";
@@ -46,18 +45,16 @@ namespace Voin_Patrusheva
             }
         }
 
-        // КЛИК ПО ПРАВОМУ БЛОКУ (Легкий воин - Legkie)
+        // легкие доспехи
         private void AttackEnemy(object sender, MouseButtonEventArgs e)
         {
             // Берем урон из правого текстбокса
             if (int.TryParse(LDYron.Text, out int yron))
             {
-                legkiyVoin.GetYron(yron); // Урон как есть (из-за override в классе Legkie)
+                legkiyVoin.GetYron(yron);
 
-                // Выводим в Label
                 playerHealthHD.Content = "Жизненные показатели: " + legkiyVoin.lives;
 
-                // Проверка на смерть
                 if (legkiyVoin.lives <= 0)
                 {
                     playerHealthHD.Content = "Жизненные показатели: умер";
